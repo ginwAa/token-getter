@@ -1,0 +1,16 @@
+{
+    "name": "token-getter",
+    "description": "copy authorization bearer token while click F12",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*"
+        ],
+        "js": [
+          "content.js"
+        ]
+      }
+    ]
+}
