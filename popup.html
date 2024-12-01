@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 500px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+    
+    select {
+      flex: 1;
+      padding: 5px;
+    }
+    
+    .delete-domain-btn {
+      padding: 5px 10px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    
+    .delete-domain-btn:hover {
+      background-color: #c82333;
+    }
+    
+    .delete-domain-btn:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+    
+    .path-list {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .path-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .path-item:last-child {
+      border-bottom: none;
+    }
+    
+    .path-item:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .path-url {
+      flex: 1;
+      margin-right: 10px;
+      word-break: break-all;
+    }
+    
+    .delete-btn {
+      padding: 4px 8px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+    
+    .empty-message {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <select id="domainFilter">
+      <option value="">选择域名</option>
+    </select>
+    <button id="deleteDomain" class="delete-domain-btn" disabled>删除当前域名所有数据</button>
+  </div>
+  
+  <div class="path-list" id="pathList">
+    <div class="empty-message">暂无保存的路径</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
