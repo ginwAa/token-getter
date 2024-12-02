@@ -40,9 +40,28 @@ function parseUrl(url) {
   try {
     const urlObj = new URL(url);
     const basePath = `${urlObj.protocol}//${urlObj.hostname}`;
-    const pathSuffix = urlObj.pathname === '/' ? '' : urlObj.pathname;
+    let suffix = '';
+    
+    if (urlObj.pathname !== '/') {
+      suffix += urlObj.pathname;
+    }
+    
+    if (urlObj.hash) {
+      // 如果suffix为空且有hash，确保以/开头
+      if (!suffix) {
+        suffix = '/';
+      }
+      suffix += urlObj.hash;
+    }
+    
+    if (urlObj.search) {
+      suffix += urlObj.search;
+    }
+    const pathSuffix = suffix;
+    // const pathSuffix = urlObj.pathname === '/' ? '' : urlObj.pathname;
     return { basePath, pathSuffix };
   } catch (e) {
+    console.log(e);
     return null;
   }
 }
